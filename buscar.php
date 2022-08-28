@@ -8,13 +8,11 @@
 </head>
 <body>
     <div>
-        <!--Formulario para busqueda de usuarios-->
         <form action="buscar.php" method="post">
             <input type="text" name="buscar" id="">
             <input type="submit" value="buscar" id="">
             <a href="nuevo.php">Nuevo</a>
         </form>
-         <!--Final del Formulario para busqueda de usuarios-->
     </div>
     <div>
         <table border="1">
@@ -25,8 +23,9 @@
                 <td>OPCIONES</td>
             </tr>
             <?php 
+                $buscar = $_POST['buscar'];
                 $con = mysqli_connect("localhost", "root", "", "prueba");
-                $sql = "SELECT id, nom, ape FROM talumno order by id desc";
+                $sql = "SELECT id, nom, ape FROM talumno WHERE nom like '$buscar' '%' order by id desc";
                 $rta = mysqli_query($con, $sql);
 
                 while ($mostrar = mysqli_fetch_row($rta)) {
