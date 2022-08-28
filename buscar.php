@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<?php
+$buscar = $_POST['buscar'];
+?>
+
 <body>
     <div>
         <form action="buscar.php" method="post">
-            <input type="text" name="buscar" id="">
+            <input type="text" name="buscar" id="" value="<?=$buscar?>">
             <input type="submit" value="buscar" id="">
             <a href="nuevo.php">Nuevo</a>
         </form>
